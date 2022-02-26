@@ -20,7 +20,6 @@ public class RegistrationFormWithPageObjectTests extends TestBase {
     @Test
     void successFillTest() {
         registrationPage.openPage();
-        Selenide.executeJavaScript("document.body.style.zoom='50%'");
         registrationPage.setFirstName(firstName);
         registrationPage.setLastName(lastName);
         registrationPage.setUserEmail(userEmail);

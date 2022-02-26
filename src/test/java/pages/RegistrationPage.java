@@ -67,7 +67,7 @@ public class RegistrationPage {
     }
 
     public void setBirthDate(String day, String month, String year) {
-        //    $("#dateOfBirthInput").click();
+        $("#dateOfBirthInput").click();
         calendarComponent.setDate(day, month, year);
     }
 
@@ -102,9 +102,7 @@ public class RegistrationPage {
     }
 
     public void choiceStateStateCity() {
-        stateStateCity.scrollTo();
-        sleep(5000);
-        stateStateCity.click();
+        stateStateCity.scrollTo().click();
     }
 
     public void choiceStateCity() {
