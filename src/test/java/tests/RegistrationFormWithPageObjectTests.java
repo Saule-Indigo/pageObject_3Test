@@ -10,7 +10,7 @@ public class RegistrationFormWithPageObjectTests extends TestBase {
     String firstName = "Ivan";
     String lastName = "Ivanov";
     String userEmail = "ivan.ivanov@mail.ru";
-    String userNumber = "1231231230";
+    String userNumber = "7059034433";
     String userAddress = "Some address";
     String userSubjects = "Math";
 
@@ -24,7 +24,7 @@ public class RegistrationFormWithPageObjectTests extends TestBase {
                 .setUserAddress(userAddress)
                 .setUserSubjects(userSubjects)
                 .imgPicture()
-                .setBirthDate("30", "July", "2008");
+                .setBirthDate("25", "February", "2022");
         registrationPage.typeGender();
         registrationPage.choiceHobbiesWrapper();
         registrationPage.choiceStateStateCity();
@@ -38,9 +38,9 @@ public class RegistrationFormWithPageObjectTests extends TestBase {
         registrationPage
                 .checkForm("Student Name", firstName + " " + lastName)
                 .checkForm("Student Email", userEmail)
-                .checkForm("Gender", "Other")
+                .checkForm("Gender", "Male")
                 .checkForm("Mobile", userNumber)
-                .checkForm("Date of Birth", "30 July,2008")
+                .checkForm("Date of Birth", "25 February,2022")
                 .checkForm("Subjects", userSubjects)
                 .checkForm("Hobbies", "Sports")
                 .checkForm("Address", userAddress)

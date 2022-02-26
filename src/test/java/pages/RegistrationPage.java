@@ -23,7 +23,7 @@ public class RegistrationPage {
             userAddressInput = $("#currentAddress"),
             userSubjectInput = $("#subjectsInput"),
             picture = $("#uploadPicture"),
-            radio = $("#genterWrapper").$(byText("Other")),
+            radio = $("#genterWrapper").$(byText("Male")),
             hobbies = $("#hobbiesWrapper").$(byText("Sports")),
             stateStateCity = $("#state"),
             stateCityWrapperNCR = $("#stateCity-wrapper").$(byText("NCR")),
@@ -99,11 +99,15 @@ public class RegistrationPage {
     }
 
     public void choiceStateCityWrapperNCR() {
-        stateCityWrapperNCR.click();
+        stateCityWrapperNCR.scrollTo().click();
     }
 
     public void choiceStateStateCity() {
         stateStateCity.click();
+    }
+
+    public void choiceStateCity() {
+        stateCity.click();
     }
 
     public void choiceStateCity() {
