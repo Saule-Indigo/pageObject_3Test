@@ -4,6 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -22,8 +24,8 @@ public class RegistrationPage {
             userAddressInput = $("#currentAddress"),
             userSubjectInput = $("#subjectsInput"),
             picture = $("#uploadPicture"),
-            radio = $("#genterWrapper").$(byText("Male")),
-            hobbies = $("#hobbiesWrapper").$(byText("Sports")),
+            radio = $("#genterWrapper"),
+            hobbies = $("#hobbiesWrapper"),
             stateStateCity = $("#state"),
             stateCityWrapperNCR = $("#stateCity-wrapper").$(byText("NCR")),
             stateCity = $("#city"),
@@ -56,11 +58,6 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setUserAddress(String userAddress) {
-        userAddressInput.setValue(userAddress);
-        return this;
-    }
-
     public RegistrationPage setUserSubjects(String userSubjects) {
         userSubjectInput.setValue(userSubjects).pressEnter();
         return this;
@@ -72,7 +69,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage imgPicture() {
-        picture.uploadFromClasspath("img/1.png");
+        picture.uploadFile(new File("src/test/resources/1.png"));
         return this;
     }
 
@@ -89,16 +86,17 @@ public class RegistrationPage {
     }
 
 
-    public void typeGender() {
-        radio.click();
+    public void typeGender(String gender) {
+        radio.$(byText(gender)).click();
     }
 
-    public void choiceHobbiesWrapper() {
-        hobbies.click();
+    public void choiceHobbiesWrapper(String hobbies) {
+        hobbies.$(byText(hobbies)).click();
+
     }
 
     public void choiceStateCityWrapperNCR() {
-        stateStateCity.find(byText("NCR"));
+        stateStateCity.find(byText("NCR")).click();
     }
 
     public void choiceStateStateCity() {
@@ -106,15 +104,11 @@ public class RegistrationPage {
     }
 
     public void choiceStateCity() {
-        stateCity.scrollTo().click();
+        stateCity.click();
     }
 
     public void choiceStateCityWrapperNoida() {
         stateCityWrapperDelhi.scrollTo().click();
-    }
-
-    public void clickSubmitButton() {
-        SubmitButton.scrollTo().click();
     }
 
     public RegistrationPage typeAddress(String address) {
