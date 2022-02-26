@@ -6,8 +6,7 @@ import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
 
@@ -68,7 +67,7 @@ public class RegistrationPage {
     }
 
     public void setBirthDate(String day, String month, String year) {
-        $("#dateOfBirthInput").click();
+        //    $("#dateOfBirthInput").click();
         calendarComponent.setDate(day, month, year);
     }
 
@@ -99,27 +98,33 @@ public class RegistrationPage {
     }
 
     public void choiceStateCityWrapperNCR() {
-        stateCityWrapperNCR.scrollTo().click();
+        stateStateCity.find(byText("NCR"));
     }
 
     public void choiceStateStateCity() {
+        stateStateCity.scrollTo();
+        sleep(5000);
         stateStateCity.click();
     }
 
     public void choiceStateCity() {
-        stateCity.click();
-    }
-
-    public void choiceStateCity() {
-        stateCity.click();
+        stateCity.scrollTo().click();
     }
 
     public void choiceStateCityWrapperNoida() {
-        stateCityWrapperDelhi.click();
+        stateCityWrapperDelhi.scrollTo().click();
     }
 
     public void clickSubmitButton() {
-        SubmitButton.click();
+        SubmitButton.scrollTo().click();
     }
 
+    public RegistrationPage typeAddress(String address) {
+        $("#currentAddress").setValue(address);
+        return this;
+    }
+
+    public void scrollSubmitButton() {
+        SubmitButton.scrollTo();
+    }
 }

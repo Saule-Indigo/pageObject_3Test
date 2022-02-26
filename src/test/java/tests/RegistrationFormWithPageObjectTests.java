@@ -1,8 +1,11 @@
 package tests;
 
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 import pages.TestBase;
 import pages.RegistrationPage;
+
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class RegistrationFormWithPageObjectTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
@@ -16,23 +19,24 @@ public class RegistrationFormWithPageObjectTests extends TestBase {
 
     @Test
     void successFillTest() {
-        registrationPage.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setUserEmail(userEmail)
-                .setUserNumber(userNumber)
-                .setUserAddress(userAddress)
-                .setUserSubjects(userSubjects)
-                .imgPicture()
-                .setBirthDate("25", "February", "2022");
+        registrationPage.openPage();
+        Selenide.executeJavaScript("document.body.style.zoom='50%'");
+        registrationPage.setFirstName(firstName);
+        registrationPage.setLastName(lastName);
+        registrationPage.setUserEmail(userEmail);
         registrationPage.typeGender();
+        registrationPage.setUserNumber(userNumber);
+        registrationPage.setBirthDate("25", "February", "2022");
+        registrationPage.setUserSubjects(userSubjects);
+        registrationPage.imgPicture();
+        registrationPage.setUserAddress(userAddress);
+        registrationPage.scrollSubmitButton();
         registrationPage.choiceHobbiesWrapper();
         registrationPage.choiceStateStateCity();
         registrationPage.choiceStateCityWrapperNCR();
         registrationPage.choiceStateCity();
         registrationPage.choiceStateCityWrapperNoida();
         registrationPage.clickSubmitButton();
-
 
         registrationPage.validateTextMatchesEnteredValues();
         registrationPage

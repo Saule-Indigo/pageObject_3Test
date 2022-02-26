@@ -7,6 +7,6 @@ public class CalendarComponent {
         $(".react-datepicker__month-select").selectOption(month);
         $(".react-datepicker__year-select").selectOption(year);
         $("[aria-label$='" + month + " " + day + "th, " + year + "']").click();
-        // "[aria-label$='July 30th, 2008']"
+        // "[aria-label$='February 25th, 2022']"
     }
 }
