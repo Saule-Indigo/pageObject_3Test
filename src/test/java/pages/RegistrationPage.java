@@ -25,7 +25,7 @@ public class RegistrationPage {
             userSubjectInput = $("#subjectsInput"),
             picture = $("#uploadPicture"),
             radio = $("#genterWrapper"),
-            hobbies = $("#hobbiesWrapper"),
+            hobbieRadio = $("#hobbiesWrapper"),
             stateStateCity = $("#state"),
             stateCityWrapperNCR = $("#stateCity-wrapper").$(byText("NCR")),
             stateCity = $("#city"),
@@ -91,8 +91,7 @@ public class RegistrationPage {
     }
 
     public void choiceHobbiesWrapper(String hobbies) {
-        hobbies.$(byText(hobbies)).click();
-
+        hobbieRadio.find(byText(hobbies)).click();
     }
 
     public void choiceStateCityWrapperNCR() {

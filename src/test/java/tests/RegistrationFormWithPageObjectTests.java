@@ -51,7 +51,7 @@ public class RegistrationFormWithPageObjectTests extends TestBase {
                 .checkForm("Student Email", userEmail)
                 .checkForm("Gender", gender)
                 .checkForm("Mobile", userNumber)
-                .checkForm("Date of Birth", day + month + year)
+                .checkForm("Date of Birth", day + " "+ month + "," + year)
                 .checkForm("Subjects", userSubjects)
                 .checkForm("Hobbies", "Sports")
                 .checkForm("Address", userAddress)
